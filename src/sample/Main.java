@@ -7,10 +7,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -28,7 +25,10 @@ public class Main extends Application {
         col.setMaxWidth(300);
         ColumnConstraints col2 = new ColumnConstraints();
         col2.setPercentWidth(60);
+       // RowConstraints r = new RowConstraints();
+      //  r.setPercentHeight(110);
         pane.getColumnConstraints().addAll(col,col2);
+
 
         //////TEXT FIELDS AND LABELS
         GridPane leftPane = new GridPane();
@@ -57,6 +57,7 @@ public class Main extends Application {
         Button but2 = new Button("Wyczyść Źródło");
         GridPane.setConstraints(but2,1,1);
         Button but3 = new Button("Pomoc");
+        but3.setDisable(true);
         GridPane.setConstraints(but3,1,2);
         Button but4 = new Button("O programie");
         GridPane.setConstraints(but4,1,3);
@@ -75,17 +76,17 @@ public class Main extends Application {
         but4.setMaxWidth(Double.MAX_VALUE);
         but5.setMaxWidth(Double.MAX_VALUE);
 
-        but1.setPrefHeight(68);
-        but2.setPrefHeight(68);
-        but3.setPrefHeight(68);
-        but4.setPrefHeight(68);
-        but5.setPrefHeight(68);
+        but1.setPrefHeight(88);
+        but2.setPrefHeight(88);
+        but3.setPrefHeight(88);
+        but4.setPrefHeight(88);
+        but5.setPrefHeight(88);
 
 
         pane.add(rightPane,1,0);
         pane.add(leftPane,0,0);
 
-        Scene scene = new Scene(pane,550,430);
+        Scene scene = new Scene(pane,550,450);
 
         primaryStage.setScene(scene);
         primaryStage.show();
