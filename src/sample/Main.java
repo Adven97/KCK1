@@ -1,5 +1,6 @@
 package sample;
 
+import com.sun.rowset.internal.Row;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -22,13 +23,14 @@ public class Main extends Application {
         pane.setVgap(5);
 
         ColumnConstraints col = new ColumnConstraints();
-        col.setMaxWidth(300);
+        col.setPrefWidth(300);
         ColumnConstraints col2 = new ColumnConstraints();
-        col2.setPercentWidth(60);
-       // RowConstraints r = new RowConstraints();
-      //  r.setPercentHeight(110);
+        col2.setPercentWidth(65);
         pane.getColumnConstraints().addAll(col,col2);
 
+        RowConstraints r = new RowConstraints();
+        r.setPercentHeight(100);
+        pane.getRowConstraints().addAll(r);
 
         //////TEXT FIELDS AND LABELS
         GridPane leftPane = new GridPane();
@@ -46,29 +48,46 @@ public class Main extends Application {
         TextArea p = new TextArea("OLA");
         GridPane.setConstraints(p,0,3);
 
+
+
+        RowConstraints rr1 = new RowConstraints();
+        rr1.setPercentHeight(10);
+        RowConstraints rr2 = new RowConstraints();
+        rr2.setPercentHeight(80);
+        RowConstraints rr3 = new RowConstraints();
+        rr3.setPercentHeight(10);
+        RowConstraints rr4 = new RowConstraints();
+        rr4.setPercentHeight(80);
+
         leftPane.getChildren().addAll(zr,t,wynik,p);
+        leftPane.getRowConstraints().addAll(rr1,rr2,rr3,rr4);
 
         ////////////BUTTONS
 
         VBox rightPane = new VBox();
+      //  GridPane rightPane = new GridPane();
 
+        Label narzedzia = new Label("Narzędzia");
         Button but1 = new Button("Przetwarzaj!");
-        GridPane.setConstraints(but1,1,0);
+        //GridPane.setConstraints(but1,1,0);
+
         Button but2 = new Button("Wyczyść Źródło");
-        GridPane.setConstraints(but2,1,1);
+        //GridPane.setConstraints(but2,1,1);
+
         Button but3 = new Button("Pomoc");
         but3.setDisable(true);
-        GridPane.setConstraints(but3,1,2);
-        Button but4 = new Button("O programie");
-        GridPane.setConstraints(but4,1,3);
-        Button but5 = new Button("Zapisz i zakończ");
-        GridPane.setConstraints(but5,1,4);
+        //GridPane.setConstraints(but3,1,2);
 
-        rightPane.getChildren().addAll(but1,but2,but3,but4,but5);
+        Button but4 = new Button("O programie");
+        //GridPane.setConstraints(but4,1,3);
+
+        Button but5 = new Button("Zapisz i zakończ");
+        //GridPane.setConstraints(but5,1,4);
+
+        rightPane.getChildren().addAll(narzedzia,but1,but2,but3,but4,but5);
 
        // zr.setPrefHeight(15);
        // wynik.setPrefHeight(5);
-
 
         but1.setMaxWidth(Double.MAX_VALUE);
         but2.setMaxWidth(Double.MAX_VALUE);
@@ -76,17 +95,17 @@ public class Main extends Application {
         but4.setMaxWidth(Double.MAX_VALUE);
         but5.setMaxWidth(Double.MAX_VALUE);
 
-        but1.setPrefHeight(88);
-        but2.setPrefHeight(88);
-        but3.setPrefHeight(88);
-        but4.setPrefHeight(88);
-        but5.setPrefHeight(88);
+        but1.setPrefHeight(889);
+        but2.setPrefHeight(889);
+        but3.setPrefHeight(889);
+        but4.setPrefHeight(889);
+        but5.setPrefHeight(889);
 
 
         pane.add(rightPane,1,0);
         pane.add(leftPane,0,0);
 
-        Scene scene = new Scene(pane,550,450);
+        Scene scene = new Scene(pane,666,450);
 
         primaryStage.setScene(scene);
         primaryStage.show();
