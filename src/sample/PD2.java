@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 public class PD2 extends Application {
@@ -24,30 +25,24 @@ public class PD2 extends Application {
         BorderPane pane = new BorderPane();
         pane.setPadding(new Insets(10,10,10,10));
 
-        ///////////////////////////////////////LEFT SIDE
+        ////////////////////////////////TEXT AREA  -  LEFT SIDE
+
         GridPane leftPane = new GridPane();
         leftPane.setPadding(new Insets(3,3,3,3));
         leftPane.setHgap(5);
         leftPane.setVgap(5);
 
-        Label label = new Label("Pole tekstowe");
-        GridPane.setConstraints(label,0,0);
+        Label label1 = new Label(" Pole tekstowe ");
+        label1.setStyle("-fx-background-color: f4f4f4;");
+        TextFlow pole = new TextFlow(label1);
+        pole.setPadding(new Insets(-12,0,0,5));
+        GridPane.setConstraints(pole,0,0);
 
         TextArea txtArea = new TextArea("To jest tekst przykładowy...");
         GridPane.setConstraints(txtArea,0,1);
         txtArea.setPrefSize(350,1000);
 
-       /* ColumnConstraints column1 = new ColumnConstraints();
-        column1.setPrefWidth(140);
-
-        ColumnConstraints column2 = new ColumnConstraints();
-        column2.setPrefWidth(100);
-
-        ColumnConstraints column3 = new ColumnConstraints();
-        column3.setPrefWidth(100);*/
-
-        leftPane.getChildren().addAll(label,txtArea);
-       // leftPane.getColumnConstraints().addAll(column1,column2,column3);
+        leftPane.getChildren().addAll(pole,txtArea);
 
        //////////////////////////// ////////////BUTTONS - RIGHT SIDE
 
@@ -57,8 +52,11 @@ public class PD2 extends Application {
         rightPane.setVgap(0);
         rightPane.setPrefWidth(150);
 
-        Label opcje = new Label("Narzędzia");
-        GridPane.setConstraints(opcje,0,0);
+        Label label2 = new Label(" Narzędzia ");
+        label2.setStyle("-fx-background-color: f4f4f4;");
+        TextFlow narzedzia = new TextFlow(label2);
+        narzedzia.setPadding(new Insets(-20,0,0,5));
+        GridPane.setConstraints(narzedzia,0,0);
 
         Button but1 = new Button("Wstaw plik");
         GridPane.setConstraints(but1,0,1);
@@ -89,7 +87,7 @@ public class PD2 extends Application {
         GridPane.setConstraints(but7,0,7);
         but7.setPrefSize(120,30);
 
-        rightPane.getChildren().addAll(opcje,but1,but2,but3,but4,but5,but6,but7);
+        rightPane.getChildren().addAll(narzedzia,but1,but2,but3,but4,but5,but6,but7);
 
         //////////////////////////STYLES
 
